@@ -1,0 +1,35 @@
+services:
+  postgres:
+    container_name: postgres-book-sf
+    image: postgres:16-alpine
+    restart: always
+    environment:
+      - POSTGRES_DB=keploy
+      - POSTGRES_USER=keploy
+      - POSTGRES_PASSWORD=keploy
+    healthcheck:
+      test: ["CMD", "pg_isready", "-d", "${POSTGRES_DB:-keploy}", "-U", "${POSTGRES_USER:-keploy}"]
+      timeout: 5s
+      retries: 5
+      start_period: 6s
+    ports:
+      - '5432:5432'
+#    volumes:
+      # - ./postgres-data:/var/lib/postgresql/data
+      # copy the sql script to create tables
+#      - ./data.sql:/docker-entrypoint-datadb.d/data.sql
+
+  php:
+    container_name: php-book-sf
+    build: docker/php
+#    depends_on:
+#      postgres:
+#        condition: service_healthy
+    depends_on:
+      - postgres
+    ports:
+      - "8000:8000"
+    working_dir: "/workspace"
+    volumes:
+      - ./book:/workspace
+    command: "symfony local:server:start --listen-ip=0.0.0.0"
