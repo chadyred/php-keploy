@@ -18,7 +18,7 @@ class EmployeeController extends AbstractController
      * @throws OptimisticLockException
      * @throws ORMException
      */
-    #[Route('/employee', name: 'app_employee', methods: ['POST'])]
+    #[Route('/employee', name: 'app_create_employee', methods: ['POST', 'GET'])]
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
         $e = new Employee();
