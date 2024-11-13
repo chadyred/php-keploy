@@ -10,15 +10,15 @@ proxyPort: 16789
 debug: false
 disableTele: false
 disableANSI: false
-containerName: "php-book-sf"
+containerName: "nginx-book-sf"
 networkName: ""
-buildDelay: 2
+buildDelay: 35
 test:
     selectedTests: {}
     globalNoise:
         global: {}
         test-sets: {}
-    delay: 5
+    delay: 10
     host: ""
     port: 0
     apiTimeout: 5
