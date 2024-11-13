@@ -13,7 +13,7 @@ To reproduce (on `ghcr.io/keploy/keploy:v2.3.0-beta38`):
 9. Try a curl like : 
 
     ```shell
-    curl --location --request POST 'http://localhost:8080/employee' \
+    curl --location --request POST 'http://localhost:8000/employee' \
     --header 'Content-Type: application/json' \
     --data-raw '{
         "firstName": "Myke",
@@ -31,7 +31,7 @@ To reproduce (on `ghcr.io/keploy/keploy:v2.3.0-beta38`):
 12. Try a curl like :
 
     ```shell
-    curl --location --request POST 'http://localhost:8080/employee' \
+    curl --location --request POST 'http://localhost:8000/employee' \
     --header 'Content-Type: application/json' \
     --data-raw '{
         "firstName": "Myke",
