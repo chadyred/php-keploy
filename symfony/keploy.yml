@@ -10,7 +10,8 @@ proxyPort: 16789
 debug: false
 disableTele: false
 disableANSI: false
-containerName: "nginx-book-sf"
+containerName: "nginx-book-sf" # to record HTTP request but not POSTGRES mocks
+# containerName: "php-book-sf" # to record mocks at init, load balacer works with CURL...but no record
 networkName: ""
 buildDelay: 35
 test:
