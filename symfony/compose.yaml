@@ -15,26 +15,38 @@ services:
     ports:
       - '5432:5432'
 
-  php:
-    container_name: php-book-sf
-    build: docker/php
+#  php:
+#    container_name: php-book-sf
+#    build: docker/php
 #    depends_on:
 #      postgres:
 #        condition: service_healthy # keploy seems to not super this kind of thing
-    depends_on:
-      - postgres
+#    depends_on:
+#      - postgres
+#    working_dir: "/workspace"
+#    volumes:
+#      - ./book:/workspace
+
+#  nginx: # keploy don't want to listen to load balancer
+#    image: nginx:alpine3.20-slim@sha256:087f90d16ce1004cf11671e229b62cc36dca1b837870aa357983954a46034d33
+#    volumes:
+#      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+#      - ./book:/workspace
+#    working_dir: /workspace
+#    depends_on:
+#      - php
+#    ports:
+#      - "${NGINX_PORT:-8080}:80"
+#    container_name: nginx-book-sf
+    
+  php-s:
+    container_name: php-s-book-store
+    build: docker/php
+#    depends_on:
+#      - postgres
+    ports:
+      - "8000:8000"
     working_dir: "/workspace"
     volumes:
       - ./book:/workspace
-
-  nginx: # keploy don't want to listen to load balancer
-    image: nginx:alpine3.20-slim@sha256:087f90d16ce1004cf11671e229b62cc36dca1b837870aa357983954a46034d33
-    volumes:
-      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
-      - ./book:/workspace
-    working_dir: /workspace
-    depends_on:
-      - php
-    ports:
-      - "${NGINX_PORT:-8080}:80"
-    container_name: nginx-book-sf
+    command: "php -S 0.0.0.0:8000 public/index.php"

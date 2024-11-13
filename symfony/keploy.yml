@@ -10,7 +10,7 @@ proxyPort: 16789
 debug: false
 disableTele: false
 disableANSI: false
-containerName: "php-book-sf" # to record HTTP request but not POSTGRES mocks event onn succes log "200" of a request...
+containerName: "php-s-book-store" # to record HTTP request but not POSTGRES mocks event onn succes log "200" of a request...
 # containerName: "php-book-sf" # to record mocks at init, load balacer works with CURL...but no record
 networkName: ""
 buildDelay: 35

@@ -21,7 +21,7 @@ clean:
 	docker compose down --remove-orphans -v
 
 init-db:
-	docker exec -it php-book-sf sh -c "php bin/console doctrine:migr:migr -n"
+	docker exec -it php-s-book-store sh -c "php bin/console doctrine:migr:migr -n"
 	
 .PHONY: install
 install:
