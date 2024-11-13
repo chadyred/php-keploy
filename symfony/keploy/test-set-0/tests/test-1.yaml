@@ -1,0 +1,53 @@
+version: api.keploy.io/v1beta1
+kind: Http
+name: test-1
+spec:
+    metadata: {}
+    req:
+        method: POST
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:8000/employee
+        header:
+            Accept: '*/*'
+            Content-Length: "121"
+            Content-Type: application/json
+            Host: localhost:8000
+            User-Agent: curl/7.81.0
+        body: |-
+            {
+                    "firstName": "Myke",
+                    "lastName": "Tyson",
+                    "email": "mt2@gmail.com",
+                    "timestamp":1
+                }
+        timestamp: 2024-11-13T09:06:10.347791052Z
+    resp:
+        status_code: 200
+        header:
+            Cache-Control: no-cache, private
+            Content-Type: application/json
+            Date: Wed, 13 Nov 2024 09:06:10 GMT
+            Host: localhost:8000
+            X-Debug-Token: "474032"
+            X-Debug-Token-Link: http://localhost:8000/_profiler/474032
+            X-Powered-By: PHP/8.3.11
+            X-Robots-Tag: noindex
+        body: '{"id":1,"email":"test2@test.com","lastName":"test222","firstName":"tetssdf"}'
+        status_message: OK
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 2024-11-13T09:06:12.580111867Z
+    objects: []
+    assertions:
+        noise:
+            header.Date: []
+    created: 1731488772
+curl: |-
+    curl --request POST \
+      --url http://localhost:8000/employee \
+      --header 'Content-Type: application/json' \
+      --header 'Host: localhost:8000' \
+      --header 'User-Agent: curl/7.81.0' \
+      --header 'Accept: */*' \
+      --data "{\n        \"firstName\": \"Myke\",\n        \"lastName\": \"Tyson\",\n        \"email\": \"mt2@gmail.com\",\n        \"timestamp\":1\n    }"
