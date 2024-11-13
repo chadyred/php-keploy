@@ -3,13 +3,14 @@
 To reproduce (on `ghcr.io/keploy/keploy:v2.3.0-beta38`):
 
 1. `cd symfony`
-2. `make clean-all`
-3. swithc the config with `containerName: "php-book-sf"` to record mocks at init
-4. `keploy start`
-5. Open another tab or shell
-6. `make init-db` to play migrations of the BDD to init it
-7. Look at the folder keploy and see the mock
-8. Try a curl like : 
+2. `make install`
+3. `make clean`
+4. change in the config the first target container `containerName: "php-book-sf"` to record mocks at init
+5. `keploy start`
+6. Open another tab or shell
+7. `make init-db` to play migrations of the BDD to init it
+8. Look at the folder keploy and see the mock
+9. Try a curl like : 
 
     ```shell
     curl --location --request POST 'http://localhost:8080/employee' \
@@ -25,9 +26,9 @@ To reproduce (on `ghcr.io/keploy/keploy:v2.3.0-beta38`):
 
     And nothing appear in the test folder of keploy...because I target nginx and not php directly ? Because the load balancing of nginx to PHP is not record...
 
-9. switch the config with `containerName: "nginx-book-sf"` to record mocks at init
-10. stop keploy and run again `keploy record`
-11. Try a curl like :
+10. switch the config with `containerName: "nginx-book-sf"` to record mocks at init
+11. stop keploy and run again `keploy record`
+12. Try a curl like :
 
     ```shell
     curl --location --request POST 'http://localhost:8080/employee' \
@@ -40,7 +41,7 @@ To reproduce (on `ghcr.io/keploy/keploy:v2.3.0-beta38`):
     }'
     ```
 
-12. Look at the folder keploy and see the tests created but no mocks
+13. Look at the folder keploy and see the tests created but no mocks
 
 
 Is it possible to record many conntainer ? A full network ?

@@ -22,3 +22,7 @@ clean:
 
 init-db:
 	docker exec -it php-book-sf sh -c "php bin/console doctrine:migr:migr -n"
+	
+.PHONY: install
+install:
+	docker compose run --rm -it php composer install
