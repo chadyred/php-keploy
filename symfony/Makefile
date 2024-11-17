@@ -11,10 +11,11 @@ USER_ID := $(shell id -u)
 GROUP_ID := $(shell id -g)
 TEST_REPORT_BASE_PATH := tests/reports
 
-ENV ?= dev
+ENV ?= test
 APP_ENV ?= $(ENV)
 
 ## Add variable useful for docker like GUI and UID
+.PHONY: .env-compose
 .env-compose:
 	@echo "UID=$(USER_ID)" > $@
 	@echo "GID=$(GROUP_ID)" >> $@
@@ -22,25 +23,26 @@ APP_ENV ?= $(ENV)
 
 .PHONY: start-bdd
 start-bdd:
-	docker compose up -d postgres
+	$(DOCKER_COMPOSE) up -d postgres
 
 .PHONY: start
 start:
-	docker compose up -d --build
+	$(DOCKER_COMPOSE) up -d --build
 
 .PHONY: stop
 stop:
-	docker compose down
+	$(DOCKER_COMPOSE) down
 
+.PHONY: restart
 restart: stop start
 
 .PHONY: stop-bdd
 stop-bdd:
-	docker compose down postgres
+	$(DOCKER_COMPOSE) down postgres
 
 .PHONY: clean
 clean:
-	docker compose down --remove-orphans -v
+	$(DOCKER_COMPOSE) down --remove-orphans -v
 
 init-db:
 	docker exec -it php-s-book-store sh -c "php bin/console doctrine:migr:migr -n"
@@ -49,8 +51,10 @@ assets:
 	$(SUB_MAKE) sc/'asset-map:compile'
 
 .PHONY: install
-install: .env-compose assets
-	docker compose run --rm -it php composer install
+install: .env-compose vendor/autoloa_runtime.php assets
+
+vendor/autoloa_runtime.php:
+	$(DOCKER_COMPOSE) run --rm -it php-s composer install
 
 ######
 CLI command:
@@ -59,10 +63,25 @@ CLI command:
 sc/%: .env-compose
 	$(PHP) bin/console $*
 
+## Clean all symfony cache, including the file cache and other cache (persisted etc)
+cc:
+	$(SUB_MAKE) sc/'c:p:c --all'
+	$(SUB_MAKE) sc/'c:c'
+
 ## Load fixtures
 fixtures:
 	# $(SUB_MAKE) sc/'hautelook:fixtures:load --purge-with-truncate -n'
 	$(DOCKER_EXEC_PHP) bin/console hautelook:fixtures:load --purge-with-truncate -n
+
+## Record keploy
+.PHONY: keploy-record
+keploy-record: .env-compose
+	keploy record
+
+## Load keploy record
+.PHONY: keploy-test
+keploy-test: cc .env-compose
+	keploy test
 
 help:
 	@awk '/^[a-zA-Z \-_0-9(\\u00a9|\\u00ae|[\\u2000-\\u3300]|\\ud83c[\\ud000-\\udfff]|\\ud83d[\\ud000-\\udfff]|\\ud83e[\\ud000-\\udfff])]+:/ { \
