@@ -1,0 +1,85 @@
+version: api.keploy.io/v1beta1
+kind: Http
+name: test-2
+spec:
+    metadata: {}
+    req:
+        method: POST
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:8000/login
+        header:
+            Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8
+            Accept-Encoding: gzip, deflate, br, zstd
+            Accept-Language: en-US,en;q=0.5
+            Connection: keep-alive
+            Content-Length: "44"
+            Content-Type: application/x-www-form-urlencoded
+            Cookie: Phpstorm-da22300b=5bacbd87-601f-417c-8506-edf76ad16e4c; Phpstorm-da22300c=fac673da-f53a-4201-9f6e-a78483415ea8; PHPSESSID=dd137f6f68f781a43082b15a371f6a8d; MOCKSESSID=4fd3989e5cbc90211091b48350112a08
+            Host: localhost:8000
+            Origin: http://localhost:8000
+            Priority: u=0, i
+            Referer: http://localhost:8000/login
+            Sec-Fetch-Dest: document
+            Sec-Fetch-Mode: navigate
+            Sec-Fetch-Site: same-origin
+            Sec-Fetch-User: ?1
+            Upgrade-Insecure-Requests: "1"
+            User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:131.0) Gecko/20100101 Firefox/131.0
+        body: _username=test@test.com&_password=testtest
+        timestamp: 2024-11-17T16:35:56.253659981Z
+    resp:
+        status_code: 302
+        header:
+            Cache-Control: max-age=0, must-revalidate, private
+            Content-Type: text/html; charset=utf-8
+            Date: Sun, 17 Nov 2024 16:35:56 GMT
+            Expires: Sun, 17 Nov 2024 16:35:56 GMT
+            Host: localhost:8000
+            Location: http://localhost:8000/
+            Set-Cookie: MOCKSESSID=c9190b043856c8fa69f3682cdac1806f; path=/; httponly; samesite=lax
+            X-Powered-By: PHP/8.3.11
+        body: |-
+            <!DOCTYPE html>
+            <html>
+                <head>
+                    <meta charset="UTF-8" />
+                    <meta http-equiv="refresh" content="0;url='http://localhost:8000/'" />
+
+                    <title>Redirecting to http://localhost:8000/</title>
+                </head>
+                <body>
+                    Redirecting to <a href="http://localhost:8000/">http://localhost:8000/</a>.
+                </body>
+            </html>
+        status_message: Found
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 2024-11-17T16:35:58.725196077Z
+    objects: []
+    assertions:
+        noise:
+            header.Date: []
+            header.Expires: []
+            header.Set-Cookie: []
+    created: 1731861358
+curl: |-
+    curl --request POST \
+      --url http://localhost:8000/login \
+      --header 'Sec-Fetch-Mode: navigate' \
+      --header 'Upgrade-Insecure-Requests: 1' \
+      --header 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:131.0) Gecko/20100101 Firefox/131.0' \
+      --header 'Sec-Fetch-Dest: document' \
+      --header 'Sec-Fetch-User: ?1' \
+      --header 'Accept-Encoding: gzip, deflate, br, zstd' \
+      --header 'Accept-Language: en-US,en;q=0.5' \
+      --header 'Cookie: Phpstorm-da22300b=5bacbd87-601f-417c-8506-edf76ad16e4c; Phpstorm-da22300c=fac673da-f53a-4201-9f6e-a78483415ea8; PHPSESSID=dd137f6f68f781a43082b15a371f6a8d; MOCKSESSID=4fd3989e5cbc90211091b48350112a08' \
+      --header 'Priority: u=0, i' \
+      --header 'Sec-Fetch-Site: same-origin' \
+      --header 'Origin: http://localhost:8000' \
+      --header 'Content-Type: application/x-www-form-urlencoded' \
+      --header 'Host: localhost:8000' \
+      --header 'Connection: keep-alive' \
+      --header 'Referer: http://localhost:8000/login' \
+      --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8' \
+      --data "_username=test@test.com&_password=testtest"

@@ -42,11 +42,13 @@ services:
   php-s:
     container_name: php-s-book-store
     build: docker/php
-#    depends_on:
-#      - postgres
+    depends_on:
+      - postgres
     ports:
       - "8000:8000"
     working_dir: "/workspace"
+    environment:
+      - APP_ENV=${APP_ENV}
     volumes:
       - ./book:/workspace
-    command: "php -S 0.0.0.0:8000 public/index.php"
+    command: "php -S 0.0.0.0:8000 public/index.php -c docker/php/php.ini"
