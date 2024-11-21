@@ -34,7 +34,7 @@ stop:
 	$(DOCKER_COMPOSE) down
 
 .PHONY: restart
-restart: stop start
+restart: .env-compose stop start
 
 .PHONY: stop-bdd
 stop-bdd:
@@ -53,8 +53,14 @@ assets:
 .PHONY: install
 install: .env-compose vendor/autoloa_runtime.php assets
 
+## INstall vendor (use -B to force command)
 vendor/autoloa_runtime.php:
 	$(DOCKER_COMPOSE) run --rm -it php-s composer install
+
+## Used to update compose dependencies
+.PHONY: composer.update
+composer.update: 
+	$(DOCKER_COMPOSE) run --rm -it php-s composer update
 
 ######
 CLI command:
