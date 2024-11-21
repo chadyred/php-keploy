@@ -11,7 +11,7 @@ USER_ID := $(shell id -u)
 GROUP_ID := $(shell id -g)
 TEST_REPORT_BASE_PATH := tests/reports
 
-ENV ?= test
+ENV ?= dev
 APP_ENV ?= $(ENV)
 
 ## Add variable useful for docker like GUI and UID
