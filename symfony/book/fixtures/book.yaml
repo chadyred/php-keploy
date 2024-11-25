@@ -1,0 +1,5 @@
+App\Entity\Book:
+  main_book:
+    title: 'Hello world'
+    author: 'Alice et Bob'
+    page_number: 12
