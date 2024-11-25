@@ -84,6 +84,11 @@ fixtures:
 keploy-record: .env-compose
 	keploy record
 
+## Rerecord keploy with TESTS as `make ENV=test TESTS=books-v1 keploy-rerecord`
+.PHONY: keploy-rerecord
+keploy-rerecord: .env-compose
+	keploy rerecord -t "$(TESTS)"
+
 ## Load keploy record
 .PHONY: keploy-test
 keploy-test: cc .env-compose

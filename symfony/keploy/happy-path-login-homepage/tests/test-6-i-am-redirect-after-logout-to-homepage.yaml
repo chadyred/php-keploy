@@ -1,6 +1,6 @@
 version: api.keploy.io/v1beta1
 kind: Http
-name: test-6
+name: test-6-i-am-redirect-after-logout-to-homepage
 spec:
     metadata: {}
     req:
@@ -13,7 +13,6 @@ spec:
             Accept-Encoding: gzip, deflate, br, zstd
             Accept-Language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
             Connection: keep-alive
-            Cookie: Phpstorm-937f9259=05d3bf5d-cbbe-47a4-9375-51e892f952cc; main_deauth_profile_token=f394a4; PHPSESSID=f14f4f04e0d770d19e114105c3377a93
             Host: localhost:8000
             Priority: u=0, i
             Sec-Fetch-Dest: document

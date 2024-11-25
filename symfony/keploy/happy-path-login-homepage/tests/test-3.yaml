@@ -15,7 +15,6 @@ spec:
             Connection: keep-alive
             Content-Length: "67"
             Content-Type: application/x-www-form-urlencoded
-            Cookie: Phpstorm-937f9259=05d3bf5d-cbbe-47a4-9375-51e892f952cc; main_deauth_profile_token=f394a4; PHPSESSID=f14f4f04e0d770d19e114105c3377a93
             Host: localhost:8000
             Origin: http://localhost:8000
             Priority: u=0, i
