@@ -22,6 +22,10 @@ class Book
     #[ORM\Column]
     private ?int $pageNumber = null;
 
+    #[ORM\ManyToOne(inversedBy: 'books')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Library $library = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +63,18 @@ class Book
     public function setPageNumber(int $pageNumber): static
     {
         $this->pageNumber = $pageNumber;
+
+        return $this;
+    }
+
+    public function getLibrary(): ?Library
+    {
+        return $this->library;
+    }
+
+    public function setLibrary(?Library $library): static
+    {
+        $this->library = $library;
 
         return $this;
     }
