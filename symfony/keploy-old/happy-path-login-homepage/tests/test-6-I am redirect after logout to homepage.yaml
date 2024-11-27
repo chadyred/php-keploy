@@ -1,6 +1,6 @@
 version: api.keploy.io/v1beta1
 kind: Http
-name: test-1
+name: I am redirect after logout to homepage
 spec:
     metadata: {}
     req:
@@ -22,13 +22,13 @@ spec:
             Upgrade-Insecure-Requests: "1"
             User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0
         body: ""
-        timestamp: 2024-11-21T07:22:59.877760201Z
+        timestamp: 2024-11-21T07:23:19.428601072Z
     resp:
         status_code: 200
         header:
             Cache-Control: no-cache, private
             Content-Type: text/html; charset=UTF-8
-            Date: Thu, 21 Nov 2024 07:22:59 GMT
+            Date: Thu, 21 Nov 2024 07:23:19 GMT
             Host: localhost:8000
             X-Powered-By: PHP/8.3.11
             X-Robots-Tag: noindex
@@ -36,25 +36,25 @@ spec:
         status_message: OK
         proto_major: 0
         proto_minor: 0
-        timestamp: 2024-11-21T07:23:02.046028488Z
+        timestamp: 2024-11-21T07:23:21.534536409Z
     objects: []
     assertions:
         noise:
             header.Date: []
-    created: 1732173782
+    created: 1732173801
 curl: |
     curl --request GET \
       --url http://localhost:8000/ \
-      --header 'Priority: u=0, i' \
-      --header 'Cookie: Phpstorm-937f9259=05d3bf5d-cbbe-47a4-9375-51e892f952cc; main_deauth_profile_token=f394a4; PHPSESSID=f14f4f04e0d770d19e114105c3377a93' \
-      --header 'Sec-Fetch-Dest: document' \
-      --header 'Host: localhost:8000' \
-      --header 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0' \
-      --header 'Sec-Fetch-Site: none' \
-      --header 'Upgrade-Insecure-Requests: 1' \
-      --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' \
-      --header 'Sec-Fetch-Mode: navigate' \
       --header 'Accept-Encoding: gzip, deflate, br, zstd' \
-      --header 'Sec-Fetch-User: ?1' \
       --header 'Connection: keep-alive' \
+      --header 'Sec-Fetch-Site: none' \
+      --header 'Priority: u=0, i' \
+      --header 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0' \
+      --header 'Upgrade-Insecure-Requests: 1' \
+      --header 'Cookie: Phpstorm-937f9259=05d3bf5d-cbbe-47a4-9375-51e892f952cc; main_deauth_profile_token=f394a4; PHPSESSID=f14f4f04e0d770d19e114105c3377a93' \
+      --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' \
+      --header 'Sec-Fetch-Dest: document' \
+      --header 'Sec-Fetch-User: ?1' \
+      --header 'Sec-Fetch-Mode: navigate' \
+      --header 'Host: localhost:8000' \
       --header 'Accept-Language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3' \

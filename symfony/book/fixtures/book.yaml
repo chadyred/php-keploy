@@ -3,3 +3,4 @@ App\Entity\Book:
     title: 'Hello world'
     author: 'Alice et Bob'
     page_number: 12
+    library: '@main_library'

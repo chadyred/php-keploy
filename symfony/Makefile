@@ -1,3 +1,5 @@
+.DEFAULT_GOAL = help
+
 GIT := $(shell which git)
 SUB_MAKE := $(shell which make)
 RM := $(shell which rm)
@@ -26,7 +28,7 @@ start-bdd:
 	$(DOCKER_COMPOSE) up -d postgres
 
 .PHONY: start
-start:
+start: .env-compose
 	$(DOCKER_COMPOSE) up -d --build
 
 .PHONY: stop
@@ -34,7 +36,7 @@ stop:
 	$(DOCKER_COMPOSE) down
 
 .PHONY: restart
-restart: .env-compose stop start
+restart: stop start
 
 .PHONY: stop-bdd
 stop-bdd:
@@ -80,18 +82,16 @@ fixtures:
 	$(DOCKER_EXEC_PHP) bin/console hautelook:fixtures:load --purge-with-truncate -n
 
 ## Record keploy
-.PHONY: keploy-record
 keploy-record: .env-compose
 	keploy record
 
 ## Rerecord keploy with TESTS as `make ENV=test TESTS=books-v1 keploy-rerecord`
-.PHONY: keploy-rerecord
 keploy-rerecord: .env-compose
 	keploy rerecord -t "$(TESTS)"
 
 ## Load keploy record
 .PHONY: keploy-test
-keploy-test: cc .env-compose
+keploy-test: clean cc .env-compose
 	keploy test
 
 help:
