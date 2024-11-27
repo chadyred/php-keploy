@@ -15,9 +15,6 @@ security:
             security: false
         main:
             lazy: true
-            provider: app_user_provider
-            custom_authenticators:
-                - App\Authenticator\CustomAuthenticator
             form_login:
                 login_path: app_login
                 check_path: app_login
@@ -54,5 +51,9 @@ when@test:
                 memory_cost: 10 # Lowest possible value for argon
         firewalls:
             main:
+                stateless: true
+                provider: app_user_provider
+                custom_authenticators:
+                    - App\Authenticator\CustomAuthenticator
                 form_login:
                     enable_csrf: false

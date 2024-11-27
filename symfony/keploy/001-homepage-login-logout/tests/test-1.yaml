@@ -16,23 +16,21 @@ spec:
             Dnt: "1"
             Host: localhost:8000
             Priority: u=0, i
-            Referer: http://localhost:8000/book
             Sec-Fetch-Dest: document
             Sec-Fetch-Mode: navigate
-            Sec-Fetch-Site: same-origin
+            Sec-Fetch-Site: none
             Sec-Fetch-User: ?1
             Sec-Gpc: "1"
             Upgrade-Insecure-Requests: "1"
             User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0
         body: ""
-        timestamp: 2024-11-27T18:29:22.943521653Z
+        timestamp: 2024-11-27T19:02:58.30456013Z
     resp:
         status_code: 200
         header:
-            Cache-Control: max-age=0, must-revalidate, private
+            Cache-Control: no-cache, private
             Content-Type: text/html; charset=UTF-8
-            Date: Wed, 27 Nov 2024 18:29:23 GMT
-            Expires: Wed, 27 Nov 2024 18:29:23 GMT
+            Date: Wed, 27 Nov 2024 19:02:58 GMT
             Host: localhost:8000
             X-Powered-By: PHP/8.3.11
             X-Robots-Tag: noindex
@@ -59,28 +57,26 @@ spec:
         status_message: OK
         proto_major: 0
         proto_minor: 0
-        timestamp: 2024-11-27T18:29:25.099579264Z
+        timestamp: 2024-11-27T19:03:00.447350665Z
     objects: []
     assertions:
         noise:
             header.Date: []
-            header.Expires: []
-    created: 1732732165
+    created: 1732734180
 curl: |
     curl --request GET \
       --url http://localhost:8000/ \
-      --header 'Accept-Encoding: gzip, deflate, br, zstd' \
-      --header 'Connection: keep-alive' \
+      --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' \
+      --header 'Dnt: 1' \
       --header 'Accept-Language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3' \
       --header 'Upgrade-Insecure-Requests: 1' \
-      --header 'Referer: http://localhost:8000/book' \
-      --header 'Sec-Gpc: 1' \
-      --header 'Sec-Fetch-Dest: document' \
+      --header 'Sec-Fetch-Site: none' \
       --header 'Sec-Fetch-User: ?1' \
+      --header 'Sec-Fetch-Dest: document' \
       --header 'Priority: u=0, i' \
+      --header 'Connection: keep-alive' \
+      --header 'Sec-Gpc: 1' \
       --header 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0' \
-      --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' \
+      --header 'Accept-Encoding: gzip, deflate, br, zstd' \
       --header 'Host: localhost:8000' \
-      --header 'Sec-Fetch-Site: same-origin' \
       --header 'Sec-Fetch-Mode: navigate' \
-      --header 'Dnt: 1' \
