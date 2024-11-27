@@ -1,6 +1,6 @@
 version: api.keploy.io/v1beta1
 kind: Http
-name: test-2
+name: I am on login page
 spec:
     metadata: {}
     req:

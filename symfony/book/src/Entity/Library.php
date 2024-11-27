@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: LibraryRepository::class)]
-class Library
+class Library implements \Stringable
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -74,5 +74,10 @@ class Library
         $this->name = $name;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
     }
 }
