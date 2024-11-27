@@ -28,17 +28,17 @@ spec:
             Upgrade-Insecure-Requests: "1"
             User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0
         body: _username=test@test.com&_password=testtest&_csrf_token=csrf-token
-        timestamp: 2024-11-27T18:29:40.453187348Z
+        timestamp: 2024-11-27T19:03:07.698916442Z
     resp:
         status_code: 302
         header:
             Cache-Control: max-age=0, must-revalidate, private
             Content-Type: text/html; charset=utf-8
-            Date: Wed, 27 Nov 2024 18:29:40 GMT
-            Expires: Wed, 27 Nov 2024 18:29:41 GMT
+            Date: Wed, 27 Nov 2024 19:03:08 GMT
+            Expires: Wed, 27 Nov 2024 19:03:08 GMT
             Host: localhost:8000
             Location: http://localhost:8000/
-            Set-Cookie: X-Auth-Keploy=test@test.com; expires=Thu, 28 Nov 2024 18:29:41 GMT; Max-Age=86400; path=/; domain=localhost; samesite=lax,MOCKSESSID=3d34d3a45fdd511b1bc883c583cb475b; path=/; httponly; samesite=lax
+            Set-Cookie: X-Auth-Keploy=test@test.com; expires=Thu, 28 Nov 2024 19:03:08 GMT; Max-Age=86400; path=/; domain=localhost; samesite=lax,MOCKSESSID=6d91feab216f377bfc81f5581251961e; path=/; httponly; samesite=lax
             X-Powered-By: PHP/8.3.11
             X-Robots-Tag: noindex
         body: |-
@@ -57,32 +57,32 @@ spec:
         status_message: Found
         proto_major: 0
         proto_minor: 0
-        timestamp: 2024-11-27T18:29:43.078299918Z
+        timestamp: 2024-11-27T19:03:10.292633976Z
     objects: []
     assertions:
         noise:
             header.Date: []
             header.Expires: []
             header.Set-Cookie: []
-    created: 1732732183
+    created: 1732734190
 curl: |-
     curl --request POST \
       --url http://localhost:8000/login \
-      --header 'Upgrade-Insecure-Requests: 1' \
+      --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' \
       --header 'Accept-Encoding: gzip, deflate, br, zstd' \
-      --header 'Sec-Fetch-Site: same-origin' \
-      --header 'Sec-Fetch-Mode: navigate' \
-      --header 'Origin: http://localhost:8000' \
-      --header 'Dnt: 1' \
       --header 'Accept-Language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3' \
-      --header 'Content-Type: application/x-www-form-urlencoded' \
+      --header 'Sec-Fetch-Mode: navigate' \
       --header 'Referer: http://localhost:8000/login' \
+      --header 'Sec-Fetch-User: ?1' \
+      --header 'Sec-Gpc: 1' \
+      --header 'Origin: http://localhost:8000' \
+      --header 'Content-Type: application/x-www-form-urlencoded' \
+      --header 'Sec-Fetch-Site: same-origin' \
+      --header 'Upgrade-Insecure-Requests: 1' \
+      --header 'Dnt: 1' \
       --header 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0' \
-      --header 'Host: localhost:8000' \
       --header 'Sec-Fetch-Dest: document' \
       --header 'Connection: keep-alive' \
-      --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' \
-      --header 'Sec-Gpc: 1' \
-      --header 'Sec-Fetch-User: ?1' \
+      --header 'Host: localhost:8000' \
       --header 'Priority: u=0, i' \
       --data "_username=test@test.com&_password=testtest&_csrf_token=csrf-token"

@@ -13,6 +13,7 @@ spec:
             Accept-Encoding: gzip, deflate, br, zstd
             Accept-Language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
             Connection: keep-alive
+            Cookie: MOCKSESSID=6d91feab216f377bfc81f5581251961e
             Dnt: "1"
             Host: localhost:8000
             Priority: u=0, i
@@ -25,14 +26,13 @@ spec:
             Upgrade-Insecure-Requests: "1"
             User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0
         body: ""
-        timestamp: 2024-11-27T18:29:48.129128973Z
+        timestamp: 2024-11-27T19:03:18.40072797Z
     resp:
         status_code: 200
         header:
-            Cache-Control: max-age=0, must-revalidate, private
+            Cache-Control: no-cache, private
             Content-Type: text/html; charset=UTF-8
-            Date: Wed, 27 Nov 2024 18:29:48 GMT
-            Expires: Wed, 27 Nov 2024 18:29:48 GMT
+            Date: Wed, 27 Nov 2024 19:03:18 GMT
             Host: localhost:8000
             X-Powered-By: PHP/8.3.11
             X-Robots-Tag: noindex
@@ -59,28 +59,28 @@ spec:
         status_message: OK
         proto_major: 0
         proto_minor: 0
-        timestamp: 2024-11-27T18:29:50.313630692Z
+        timestamp: 2024-11-27T19:03:20.545789897Z
     objects: []
     assertions:
         noise:
             header.Date: []
-            header.Expires: []
-    created: 1732732190
+    created: 1732734200
 curl: |
     curl --request GET \
       --url http://localhost:8000/ \
-      --header 'Accept-Encoding: gzip, deflate, br, zstd' \
-      --header 'Accept-Language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3' \
-      --header 'Connection: keep-alive' \
       --header 'Upgrade-Insecure-Requests: 1' \
-      --header 'Sec-Fetch-Site: same-origin' \
-      --header 'Priority: u=0, i' \
-      --header 'Sec-Gpc: 1' \
       --header 'Dnt: 1' \
-      --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' \
+      --header 'Cookie: MOCKSESSID=6d91feab216f377bfc81f5581251961e' \
       --header 'Sec-Fetch-Dest: document' \
-      --header 'Sec-Fetch-User: ?1' \
       --header 'Host: localhost:8000' \
+      --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' \
+      --header 'Accept-Language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3' \
+      --header 'Priority: u=0, i' \
+      --header 'Sec-Fetch-Site: same-origin' \
       --header 'Referer: http://localhost:8000/' \
       --header 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0' \
+      --header 'Sec-Gpc: 1' \
+      --header 'Accept-Encoding: gzip, deflate, br, zstd' \
       --header 'Sec-Fetch-Mode: navigate' \
+      --header 'Sec-Fetch-User: ?1' \
+      --header 'Connection: keep-alive' \
