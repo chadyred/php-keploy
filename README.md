@@ -62,12 +62,10 @@ TODO :
 
 DEMO : 
 
-1. m ENV=test clean
-2. m ENV=test cc
-3. m ENV=test keploy-record
-4. m init-db
-5. m fixtures
-6. go to "/"
-7. go to "/login" : test@test.com / test
-8. stop recorp
-9. m ENV=test keploy-test
+1. make ENV=test start && sleep 2 && make init-db && make fixtures && make ENV=test keploy-record
+2. Open browser in ghost mode
+2. go to "/"
+3. go to "/login" : test@test.com / test
+4. stop record
+5. m ENV=test keploy-test
+
