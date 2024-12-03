@@ -11,7 +11,7 @@
                 <th>Id</th>
                 <th>Title</th>
                 <th>Author</th>
-                <th>PageNumber</th>
+                <th>printLength</th>
                 <th>Library</th>
                 <th>actions</th>
             </tr>
@@ -22,7 +22,7 @@
                 <td>{{ book.id }}</td>
                 <td>{{ book.title }}</td>
                 <td>{{ book.author }}</td>
-                <td>{{ book.pageNumber }}</td>
+                <td>{{ book.printLength }}</td>
                 <td>{{ book.library }}</td>
                 <td>
                     {% if is_granted('ROLE_USER') %}

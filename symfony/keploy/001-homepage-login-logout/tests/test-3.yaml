@@ -63,7 +63,6 @@ spec:
         noise:
             header.Date: []
             header.Expires: []
-            header.Set-Cookie: []
     created: 1732734190
 curl: |-
     curl --request POST \

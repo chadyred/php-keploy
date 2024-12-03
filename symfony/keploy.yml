@@ -17,7 +17,12 @@ buildDelay: 35
 test:
     selectedTests: {}
     globalNoise:
-        global: {}
+        global: {
+            header: {
+              # To ignore the entire field, pass an empty array
+                "Set-Cookie": [ ],
+            }
+        }
         test-sets: {}
     delay: 10
     host: ""

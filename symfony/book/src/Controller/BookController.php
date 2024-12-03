@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Book;
-use App\Form\Book1Type;
+use App\Form\BookType;
 use App\Repository\BookRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -27,7 +27,7 @@ final class BookController extends AbstractController
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
         $book = new Book();
-        $form = $this->createForm(Book1Type::class, $book);
+        $form = $this->createForm(BookType::class, $book);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -55,7 +55,7 @@ final class BookController extends AbstractController
     public function edit(Request $request, Book $book, EntityManagerInterface $entityManager): Response
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
-        $form = $this->createForm(Book1Type::class, $book);
+        $form = $this->createForm(BookType::class, $book);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

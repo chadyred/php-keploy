@@ -28,7 +28,7 @@ spec:
             Sec-Gpc: "1"
             Upgrade-Insecure-Requests: "1"
             User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0
-        body: book1[title]=My new book&book1[author]=Somone&book1[pageNumber]=1200&book1[library]=4&book1[_token]=564b4766e9.qYY9_qfVe-U0Oy2zb8aTzRbPobW2V4pFhotCXIgnsXY.kPxXiMTjSqxzc0_BIoP9uWCO6-fMOvA9wd8SDeJm3AfusVan8ZgeqQAKWg
+        body: book1[title]=My new book&book1[author]=Somone&book1[printLength]=1200&book1[library]=4&book1[_token]=564b4766e9.qYY9_qfVe-U0Oy2zb8aTzRbPobW2V4pFhotCXIgnsXY.kPxXiMTjSqxzc0_BIoP9uWCO6-fMOvA9wd8SDeJm3AfusVan8ZgeqQAKWg
         timestamp: 2024-12-02T17:12:16.053502667Z
     resp:
         status_code: 303
@@ -86,4 +86,4 @@ curl: |-
       --header 'Sec-Fetch-User: ?1' \
       --header 'Host: localhost:8000' \
       --header 'Origin: http://localhost:8000' \
-      --data "book1[title]=My new book&book1[author]=Somone&book1[pageNumber]=1200&book1[library]=4&book1[_token]=564b4766e9.qYY9_qfVe-U0Oy2zb8aTzRbPobW2V4pFhotCXIgnsXY.kPxXiMTjSqxzc0_BIoP9uWCO6-fMOvA9wd8SDeJm3AfusVan8ZgeqQAKWg"
+      --data "book1[title]=My new book&book1[author]=Somone&book1[printLength]=1200&book1[library]=4&book1[_token]=564b4766e9.qYY9_qfVe-U0Oy2zb8aTzRbPobW2V4pFhotCXIgnsXY.kPxXiMTjSqxzc0_BIoP9uWCO6-fMOvA9wd8SDeJm3AfusVan8ZgeqQAKWg"
