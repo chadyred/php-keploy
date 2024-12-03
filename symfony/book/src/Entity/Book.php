@@ -20,7 +20,7 @@ class Book
     private ?string $author = null;
 
     #[ORM\Column]
-    private ?int $pageNumber = null;
+    private ?int $printLength = null;
 
     #[ORM\ManyToOne(inversedBy: 'books')]
     #[ORM\JoinColumn(nullable: false)]
@@ -55,14 +55,14 @@ class Book
         return $this;
     }
 
-    public function getPageNumber(): ?int
+    public function getPrintLength(): ?int
     {
-        return $this->pageNumber;
+        return $this->printLength;
     }
 
-    public function setPageNumber(int $pageNumber): static
+    public function setPrintLength(int $printLength): static
     {
-        $this->pageNumber = $pageNumber;
+        $this->printLength = $printLength;
 
         return $this;
     }

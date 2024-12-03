@@ -63,7 +63,7 @@ spec:
                             <th>Id</th>
                             <th>Title</th>
                             <th>Author</th>
-                            <th>PageNumber</th>
+                            <th>printLength</th>
                             <th>Library</th>
                             <th>actions</th>
                         </tr>

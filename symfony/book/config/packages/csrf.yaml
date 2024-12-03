@@ -3,8 +3,8 @@
 # Symfony 7.2 introduce CSRF TOKEN stateless to be able to have a HTML with just a string to replace dynamically by JS
 # It is useful for caching page or test which compare HTML code !!
 
-when@test:
-    framework:
-        csrf_protection:
-            stateless_token_ids:
-                - authenticate
+framework:
+    csrf_protection:
+        stateless_token_ids:
+            - authenticate
+            - book-item

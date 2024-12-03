@@ -9,14 +9,14 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class Book1Type extends AbstractType
+class BookType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('title')
             ->add('author')
-            ->add('pageNumber')
+            ->add('printLength')
             ->add('library', EntityType::class, [
                 'class' => Library::class,
             ])
@@ -27,6 +27,7 @@ class Book1Type extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Book::class,
+            'csrf_token_id' => 'book-item'
         ]);
     }
 }
