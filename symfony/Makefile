@@ -55,7 +55,7 @@ assets:
 .PHONY: install
 install: .env-compose vendor/autoloa_runtime.php assets
 
-## INstall vendor (use -B to force command)
+## Install vendor (use -B to force command)
 vendor/autoloa_runtime.php:
 	$(DOCKER_COMPOSE) run --rm -it php-s composer install
 
