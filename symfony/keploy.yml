@@ -20,6 +20,7 @@ test:
         global: {
             header: {
               # To ignore the entire field, pass an empty array
+                "Set-Cookie": []
             }
         }
         test-sets: {}
